@@ -1,0 +1,142 @@
+package com.bookstore.API;
+
+public class BookDataModel {
+
+    private Integer authorID;
+    private String sold;
+    private String descript;
+    private String genre;
+    private String ISBN;
+    private Integer price;
+    private String publisher;
+    private Integer rating;
+    private String title;
+    private Integer pubYear;
+    private Integer bookID;
+
+
+    public BookDataModel(Integer authorID, String sold, String descript, String genre, String ISBN, Integer price, String publisher, Integer rating, String title, Integer pubYear, Integer bookID) {
+        this.authorID = authorID;
+        this.sold = sold;
+        this.descript = descript;
+        this.genre = genre;
+        this.ISBN = ISBN;
+        this.price = price;
+        this.publisher = publisher;
+        this.rating = rating;
+        this.title = title;
+        this.pubYear = pubYear;
+        this.bookID = bookID;
+    }
+
+
+
+    public BookDataModel() {
+
+    }
+
+    public Integer getAuthorID() {
+        return authorID;
+    }
+
+    public void setAuthorID(Integer authorID) {
+        this.authorID = authorID;
+    }
+
+    public String getSold() {
+        return sold;
+    }
+
+    public void setSold(String sold) {
+        this.sold = sold;
+    }
+
+    public String getDescript() {
+        return descript;
+    }
+
+    public void setDescript(String descript) {
+        this.descript = descript;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getPubYear() {
+        return pubYear;
+    }
+
+    public void setPubYear(Integer pubYear) {
+        this.pubYear = pubYear;
+    }
+
+    public Integer getBookID() {
+        return bookID;
+    }
+
+    public void setBookID(Integer bookID) {
+        this.bookID = bookID;
+    }
+
+    @Override
+    public String toString() {
+        return "BookDataModel{" +
+                "authorID=" + authorID +
+                ", sold='" + sold + '\'' +
+                ", descript='" + descript + '\'' +
+                ", genre='" + genre + '\'' +
+                ", ISBN='" + ISBN + '\'' +
+                ", price=" + price +
+                ", publisher='" + publisher + '\'' +
+                ", rating=" + rating +
+                ", title='" + title + '\'' +
+                ", pubYear=" + pubYear +
+                ", bookID=" + bookID +
+                '}';
+    }
+}
