@@ -11,10 +11,12 @@ public class BookDetails {
     private int isbn;
     private String title;
     private String description;
-    private float price;
-    private String author;
+    private String price;
+    private String authorFirst;
+    private String authorLast;
     private String genre;
     private String publisher;
+    private String biography;
     private int yearPublished;
     private int copiesSold;
 
@@ -22,13 +24,14 @@ public class BookDetails {
 
     }
 
-    public BookDetails(int book_isbn, String book_name, String book_description, float price, String author, String genre, String publisher, int year_published,
+    public BookDetails(int book_isbn, String book_name, String book_description, String price, String authorFirst, String authorLast,String genre, String publisher, int year_published,
                                                                                                                 int copies_sold) {
         this.isbn = book_isbn;
         this.title = book_name;
         this.description = book_description;
         this.price = price;
-        this.author = author;
+        this.authorFirst = authorFirst;
+        this.authorLast = authorLast;
         this.genre = genre;
         this.publisher = publisher;
         this.yearPublished = year_published;
@@ -41,6 +44,15 @@ public class BookDetails {
         this.description = description;
         this.isbn = isbn;
 
+    }
+
+    public BookDetails(String book_name, String description,  int isbn, String price, int year_Published, int copies_Sold){
+        this.title = book_name;
+        this.description = description;
+        this.isbn = isbn;
+        this.price = price;
+        this.yearPublished = year_Published;
+        this.copiesSold = copies_Sold;
     }
 
     public int getIsbn() {
@@ -67,21 +79,23 @@ public class BookDetails {
         this.description = book_description;
     }
 
-    public float getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getAuthorFullName() {
+        return authorFirst + " " + authorLast;
     }
+    public String getAuthorFirst() {return authorFirst;}
+    public String getAuthorLast() {return authorLast;}
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
+    //public void setAuthor(String author) {
+     //   this.author = author;
+  // }
 
     public String getGenre() {
         return genre;
@@ -122,7 +136,7 @@ public class BookDetails {
                 ", Book Name='" + title + '\'' +
                 ", Book Description='" + description + '\'' +
                 ", Price=" + price +
-                ", Author='" + author + '\'' +
+                ", Author='" + authorFirst + " " + authorLast + '\'' +
                 ", Genre='" + genre + '\'' +
                 ", Publisher='" + publisher + '\'' +
                 ", Year Published=" + yearPublished +

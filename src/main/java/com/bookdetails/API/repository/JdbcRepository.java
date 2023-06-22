@@ -18,20 +18,21 @@ import java.util.List;
 
         @Override
         public int save(BookDetails BookDetails) {
-            return jdbcTemplate.update("INSERT INTO Book Details (title, description, isbn) VALUES(?,?,?)",
-                    new Object[] { BookDetails.getTitle(), BookDetails.getDescription(), BookDetails.getIsbn() });
+            return jdbcTemplate.update("INSERT INTO bookdetails (title, description, isbn, price, yearPublished, copiesSold) VALUES(?,?,?,?,?,?)",
+                    new Object[] { BookDetails.getTitle(), BookDetails.getDescription(), BookDetails.getIsbn(), BookDetails.getPrice(), BookDetails.getYearPublished(),
+                                                                                        BookDetails.getCopiesSold(),});
         }
 
         @Override
         public int update(BookDetails BookDetails) {
-            return jdbcTemplate.update("UPDATE tutorials SET title=?, description=?, isbn=? WHERE yearpublished=?",
+            return jdbcTemplate.update("UPDATE bookdetails SET title=?, description=?, isbn=? WHERE yearPublished=?",
                     new Object[] { BookDetails.getTitle(), BookDetails.getDescription(), BookDetails.getIsbn(), BookDetails.getYearPublished() });
         }
 
         @Override
         public BookDetails findByIsbn(int isbn) {
             try {
-                BookDetails BookDetails = jdbcTemplate.queryForObject("SELECT * FROM tutorials WHERE isbn=?",
+                BookDetails BookDetails = jdbcTemplate.queryForObject("SELECT * FROM bookdetails WHERE isbn=?",
                         BeanPropertyRowMapper.newInstance(BookDetails.class), isbn);
 
                 return BookDetails;
@@ -42,30 +43,30 @@ import java.util.List;
 
         @Override
         public int deleteByIsbn(int isbn) {
-            return jdbcTemplate.update("DELETE FROM tutorials WHERE isbn=?", isbn);
+            return jdbcTemplate.update("DELETE FROM bookdetails WHERE isbn=?", isbn);
         }
 
         @Override
         public List<BookDetails> findAll() {
-            return jdbcTemplate.query("SELECT * from tutorials", BeanPropertyRowMapper.newInstance(BookDetails.class));
+            return jdbcTemplate.query("SELECT * from bookdetails", BeanPropertyRowMapper.newInstance(BookDetails.class));
         }
 
         @Override
         public List<BookDetails> findByPublished(boolean published) {
-            return jdbcTemplate.query("SELECT * from tutorials WHERE published=?",
+            return jdbcTemplate.query("SELECT * from bookdetails WHERE published=?",
                     BeanPropertyRowMapper.newInstance(BookDetails.class), published);
         }
 
         @Override
         public List<BookDetails> findByTitleContaining(String title) {
-            String q = "SELECT * from tutorials WHERE title LIKE '%" + title + "%'";
+            String q = "SELECT * from bookdetails WHERE title LIKE '%" + title + "%'";
 
             return jdbcTemplate.query(q, BeanPropertyRowMapper.newInstance(BookDetails.class));
         }
 
         @Override
         public int deleteAll() {
-            return jdbcTemplate.update("DELETE from tutorials");
+            return jdbcTemplate.update("DELETE from bookdetails");
         }
     }
 
