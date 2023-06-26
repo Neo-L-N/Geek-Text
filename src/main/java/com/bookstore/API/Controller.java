@@ -1,7 +1,6 @@
-package BookSortingFeature;
+package com.bookstore.API;
 
-import BookSortingFeature.BookDataModel;
-import BookSortingFeature.UserDataRepository;
+import com.bookstore.API.BookSortingFeature.BookDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,11 +36,17 @@ public class Controller {
 
     @GetMapping("/sold")
     // This returns a list of books sorted by the best sold books
-    public List<BookDataModel> bestSeller() {
+    public ResponseEntity<List<BookDataModel>> bestSeller() {
 
         List<BookDataModel> bookDataModels = interfaceChoice.bestSeller();
 
-        return bookDataModels; // returns the list of books
+        if (bookDataModels != null) {
+            return new ResponseEntity<>(bookDataModels, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        //return bookDataModels; // returns the list of books
     }
 
     @PutMapping("/discount/{publisher}/{discount}")
