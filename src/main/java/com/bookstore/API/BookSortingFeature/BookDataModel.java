@@ -1,4 +1,4 @@
-package BookSortingFeature;
+package com.bookstore.API.BookSortingFeature;
 
 public class BookDataModel {
 

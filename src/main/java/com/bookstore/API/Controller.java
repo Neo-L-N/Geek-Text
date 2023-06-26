@@ -1,7 +1,6 @@
-package BookSortingFeature;
+package com.bookstore.API;
 
-import BookSortingFeature.BookDataModel;
-import BookSortingFeature.UserDataRepository;
+import com.bookstore.API.BookSortingFeature.BookDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

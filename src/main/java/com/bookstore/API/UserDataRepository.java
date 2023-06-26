@@ -1,6 +1,6 @@
-package BookSortingFeature;
+package com.bookstore.API;
 
-import BookSortingFeature.BookDataModel;
+import com.bookstore.API.BookSortingFeature.BookDataModel;
 
 import java.util.List;
 
