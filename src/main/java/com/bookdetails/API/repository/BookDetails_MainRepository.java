@@ -17,7 +17,6 @@ public interface BookDetails_MainRepository {
     List<BookDetails> findAll();
     List<BookDetails> findAllByID(int authorid);
 
-    List<BookDetails> findByPublished(boolean published);
 
     List<BookDetails> findByTitleContaining(String title);
 
