@@ -5,61 +5,60 @@ public class BookDetails {
     name, book description, price, author, genre, publisher , year published and
     copies sold.
     */
-
-
-
-    private int isbn;
+    private String isbn;
     private String title;
-    private String description;
-    private String price;
-    private String authorFirst;
-    private String authorLast;
+    private String descript;
+    private int price;
     private String genre;
     private String publisher;
-    private String biography;
-    private int yearPublished;
-    private int copiesSold;
+    private int rating;
+    private int pubYear;
+    private int sold;
+    private int authorid;
+
+
+
+    private int bookid;
 
     public BookDetails(){
 
     }
 
-    public BookDetails(int book_isbn, String book_name, String book_description, String price, String authorFirst, String authorLast,String genre, String publisher, int year_published,
-                                                                                                                int copies_sold) {
+    public BookDetails(String book_isbn, String book_name, String book_description, int price, String genre, String publisher, int year_published,
+                                                                                int copies_sold, int rating, int authorid, int bookid) {
         this.isbn = book_isbn;
         this.title = book_name;
-        this.description = book_description;
+        this.descript = book_description;
         this.price = price;
-        this.authorFirst = authorFirst;
-        this.authorLast = authorLast;
         this.genre = genre;
         this.publisher = publisher;
-        this.yearPublished = year_published;
-        this.copiesSold = copies_sold;
-
+        this.pubYear = year_published;
+        this.sold = copies_sold;
+        this.rating = rating;
+        this.authorid = authorid;
+        this.bookid = bookid;
     }
 
-    public BookDetails(String book_name, String description, int isbn){
+    public BookDetails(int authorid, String book_name, String descript, String isbn, int price, int year_Published, int copies_Sold, int bookid,
+                       String genre, String publisher, int rating){
         this.title = book_name;
-        this.description = description;
-        this.isbn = isbn;
-
-    }
-
-    public BookDetails(String book_name, String description,  int isbn, String price, int year_Published, int copies_Sold){
-        this.title = book_name;
-        this.description = description;
+        this.descript = descript;
         this.isbn = isbn;
         this.price = price;
-        this.yearPublished = year_Published;
-        this.copiesSold = copies_Sold;
+        this.pubYear = year_Published;
+        this.sold = copies_Sold;
+        this.authorid = authorid;
+        this.bookid = bookid;
+        this.rating = rating;
+        this.genre = genre;
+        this.publisher = publisher;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int book_isbn) {
+    public void setIsbn(String book_isbn) {
         this.isbn = book_isbn;
     }
 
@@ -71,32 +70,45 @@ public class BookDetails {
         this.title = book_name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescript() {
+        return descript;
     }
 
-    public void setDescription(String book_description) {
-        this.description = book_description;
+    public void setDescript(String book_description) {
+        this.descript = book_description;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public String getAuthorFullName() {
-        return authorFirst + " " + authorLast;
+    public int getRating() {
+        return rating;
     }
-    public String getAuthorFirst() {return authorFirst;}
-    public String getAuthorLast() {return authorLast;}
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
 
     //public void setAuthor(String author) {
      //   this.author = author;
   // }
-
+    public int getbookid() {return bookid;}
+    public int getauthorid() {
+        return authorid;
+    }
     public String getGenre() {
         return genre;
     }
@@ -105,28 +117,20 @@ public class BookDetails {
         this.genre = genre;
     }
 
-    public String getPublisher() {
-        return publisher;
+    public int getPubYear() {
+        return pubYear;
     }
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
+    public void setPubYear(int YearPublished) {
+        this.pubYear = YearPublished;
     }
 
-    public int getYearPublished() {
-        return yearPublished;
+    public int getSold() {
+        return sold;
     }
 
-    public void setYearPublished(int YearPublished) {
-        this.yearPublished = YearPublished;
-    }
-
-    public int getCopiesSold() {
-        return copiesSold;
-    }
-
-    public void setCopiesSold(int copies_sold) {
-        this.copiesSold = copies_sold;
+    public void setSold(int copies_sold) {
+        this.sold = copies_sold;
     }
 
     @Override
@@ -134,14 +138,13 @@ public class BookDetails {
         return "BookDetails{" +
                 "Book Isbn=" + isbn +
                 ", Book Name='" + title + '\'' +
-                ", Book Description='" + description + '\'' +
-                ", Price=" + price +
-                ", Author='" + authorFirst + " " + authorLast + '\'' +
+                ", Book Description='" + descript + '\'' +
+                ", Price=" + price + '\'' +
                 ", Genre='" + genre + '\'' +
-                ", Publisher='" + publisher + '\'' +
-                ", Year Published=" + yearPublished +
-                ", Copies Sold=" + copiesSold +
+                ", Year Published=" + pubYear +
+                ", Copies Sold=" + sold +
                 '}';
     }
+
 
 }

@@ -1,7 +1,7 @@
 package com.bookdetails.API.controller;
 
 import com.bookdetails.API.model.BookDetails;
-import com.bookdetails.API.repository.MainRepository;
+import com.bookdetails.API.repository.BookDetails_MainRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,10 +16,10 @@ import java.util.List;
 @RestController
 @ResponseBody
 @RequestMapping("/api")
-public class Controller {
+public class BookDetailsController {
 
     @Autowired
-    MainRepository mainRepository;
+    BookDetails_MainRepository mainRepository;
 
     @GetMapping("/BookDetails")
     public ResponseEntity<List<BookDetails>> getAllBooks(@RequestParam(required = false) String title) {
@@ -43,8 +43,8 @@ public class Controller {
         }
     }
 
-    @GetMapping("/BookDetails/{isbn}")
-    public ResponseEntity<BookDetails> getBookByIsbn(@PathVariable("isbn") int isbn) {
+    @GetMapping("/BookDetails/{ISBN}")
+    public ResponseEntity<BookDetails> getBookByIsbn(@PathVariable("ISBN") String isbn) {
         BookDetails book = mainRepository.findByIsbn(isbn);
 
         if (book != null) {
@@ -57,8 +57,8 @@ public class Controller {
     @PostMapping("/BookDetails")
     public ResponseEntity<String> createBook(@RequestBody BookDetails book) {
         try {
-            mainRepository.save(new BookDetails(book.getTitle(), book.getDescription(), book.getIsbn(), book.getPrice(), book.getYearPublished(),
-                    book.getCopiesSold()));
+            mainRepository.save(new BookDetails(book.getauthorid(), book.getTitle(), book.getDescript(), book.getIsbn(), book.getPrice(), book.getPubYear(),
+                    book.getSold(), book.getbookid(), book.getGenre(), book.getPublisher(), book.getRating()));
             return new ResponseEntity<>("Book was created successfully.", HttpStatus.CREATED);
         } catch (Exception e) {
             System.out.println(e);
@@ -67,10 +67,10 @@ public class Controller {
     }
 
     @DeleteMapping("/BookDetails/{isbn}")
-    public ResponseEntity<String> deleteBook(@PathVariable("isbn") int isbn) {
+    public ResponseEntity<String> deleteBook(@PathVariable("ISBN") String isbn) {
         try {
-            int result = mainRepository.deleteByIsbn(isbn);
-            if (result == 0) {
+            String result = mainRepository.deleteByIsbn(isbn);
+            if (result == null) {
                 return new ResponseEntity<>("Cannot find Book with isbn=" + isbn, HttpStatus.OK);
             }
             return new ResponseEntity<>("Book was deleted successfully.", HttpStatus.OK);
@@ -80,13 +80,13 @@ public class Controller {
     }
 
     @PutMapping("/BookDetails/{isbn}")
-    public ResponseEntity<String> updateBook(@PathVariable("isbn") int isbn, @RequestBody BookDetails book) {
+    public ResponseEntity<String> updateBook(@PathVariable("ISBN") String isbn, @RequestBody BookDetails book) {
         BookDetails _tutorial = mainRepository.findByIsbn(isbn);
 
         if (_tutorial != null) {
             _tutorial.setIsbn(isbn);
             _tutorial.setTitle(book.getTitle());
-            _tutorial.setDescription(book.getDescription());
+            _tutorial.setDescript(book.getDescript());
             //_tutorial.setPublished(book.isPublished());
 
             mainRepository.update(_tutorial);

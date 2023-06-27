@@ -5,16 +5,17 @@ import com.bookdetails.API.model.BookDetails;
 import java.util.List;
 
 
-public interface MainRepository {
+public interface BookDetails_MainRepository {
     int save(BookDetails book);
 
     int update(BookDetails book);
 
-    BookDetails findByIsbn(int isbn);
+    BookDetails findByIsbn(String isbn);
 
-    int deleteByIsbn(int isbn);
+    String deleteByIsbn(String isbn);
 
     List<BookDetails> findAll();
+    List<BookDetails> findAllByID(int authorid);
 
     List<BookDetails> findByPublished(boolean published);
 
