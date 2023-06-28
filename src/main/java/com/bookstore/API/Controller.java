@@ -8,24 +8,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// testing the new branch
 
-//controller must be in the same package directory
-
-@RestController // contains all the methods
+/**
+ * This is the restfull api controller that contains all the mapping endpoints
+ * for the requests.
+ */
+@RestController
 public class Controller {
 
-    @Autowired
+    @Autowired // injects the JDBC
     UserDataRepository interfaceChoice;
 
     @GetMapping("/gen/{genre}") // genre variable
     // This gets a list of books by the user specified genre
-    public List<BookDataModel> findBookGenre(@PathVariable("genre") String genre) {
+    public ResponseEntity<List<BookDataModel>> findBookGenre(@PathVariable("genre") String genre) {
 
         List<BookDataModel> bookDataModels = interfaceChoice.findGenre(genre);
 
-        return bookDataModels; // returns the list of books
-    }
+        if (bookDataModels != null) {
+            return new ResponseEntity<>(bookDataModels, HttpStatus.OK);
+        } // end if
+        else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } // end else
+
+    } // end @getMapping
 
     @GetMapping("/rating/{rating}")
     // This gets a list of books by the user specified rating
