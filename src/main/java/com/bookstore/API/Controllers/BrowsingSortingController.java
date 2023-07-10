@@ -1,6 +1,7 @@
-package com.bookstore.API;
+package com.bookstore.API.Controllers;
 
-import com.bookstore.API.BookSortingFeature.BookDataModel;
+import com.bookstore.API.Models.BookDataModel;
+import com.bookstore.API.Services.BrowsingSortingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +15,10 @@ import java.util.List;
  * for the requests.
  */
 @RestController
-public class Controller {
+public class BrowsingSortingController {
 
     @Autowired // injects the JDBC
-    UserDataRepository interfaceChoice;
+    BrowsingSortingService interfaceChoice;
 
     @GetMapping("/gen/{genre}") // genre variable
     // This gets a list of books by the user specified genre
@@ -60,6 +61,7 @@ public class Controller {
 
     }
 
+    /*
     @RequestMapping("/customer")
     public String sayHello () {
         return "Hello everyone";
@@ -88,5 +90,5 @@ public class Controller {
         }
     }
 
-
+*/
 }

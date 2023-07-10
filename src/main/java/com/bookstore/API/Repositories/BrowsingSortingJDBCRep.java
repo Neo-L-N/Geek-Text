@@ -1,8 +1,9 @@
-package com.bookstore.API;
+package com.bookstore.API.Repositories;
 
 import java.util.List;
 
-import com.bookstore.API.BookSortingFeature.BookDataModel;
+import com.bookstore.API.Models.BookDataModel;
+import com.bookstore.API.Services.BrowsingSortingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -12,7 +13,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
  * This is the restfull api repository that contains all the database queries.
  */
 @Repository
-public class JDBCRep implements UserDataRepository {
+public class BrowsingSortingJDBCRep implements BrowsingSortingService {
 
 
     @Autowired
@@ -63,19 +64,5 @@ public class JDBCRep implements UserDataRepository {
 
     }
 
-    @Override
-    public BookDataModel.UserDataModel findById(int userid) {
-        BookDataModel.UserDataModel userDataModel = jdbcTemplate.queryForObject("SELECT * FROM userdata WHERE userID=?",
-                BeanPropertyRowMapper.newInstance(BookDataModel.UserDataModel.class), userid);
-        return userDataModel;
-
-    }
-
-    @Override
-    public int save(BookDataModel.UserDataModel userDataModel) {
-        return jdbcTemplate.update("INSERT INTO userdata (userName, userPassword, fullName, email, address, creditCard) VALUES(?,?,?,?,?,?)",
-                new Object[] { userDataModel.getUserName(), userDataModel.getUserPassword(), userDataModel.getFullName(),
-                        userDataModel.getEmail(), userDataModel.getAddress(), userDataModel.getCreditCard()});
-    }
 
 }
