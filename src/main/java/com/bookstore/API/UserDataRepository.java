@@ -1,4 +1,4 @@
-package com.bookstore.API.;
+package com.bookstore.API;
 
 import java.util.List;
 

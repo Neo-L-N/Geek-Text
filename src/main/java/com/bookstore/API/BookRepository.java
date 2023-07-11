@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface BookRepository extends UserDataRepository<BookDataModel, Long> {
+public interface BookRepository <BookDataModel, Long> {
     // You can define custom query methods here if needed
     List<BookDataModel> findByGenre(String genre);
 
