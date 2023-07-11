@@ -1,4 +1,4 @@
-package com.bookstore.API;
+package repository;
 
 
 import org.springframework.stereotype.Repository;

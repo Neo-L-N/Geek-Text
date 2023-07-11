@@ -1,4 +1,6 @@
-package com.bookstore.API;
+package repository;
+
+import com.bookstore.API.BookDataModel;
 
 import java.util.List;
 
