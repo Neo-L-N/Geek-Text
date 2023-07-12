@@ -1,10 +1,8 @@
 package com.bookdetails.API.repository;
 
 import com.bookdetails.API.model.AuthorData;
-public interface AuthorData_Repository {
+public interface AuthorDataRepository {
 
     int save(AuthorData author);
-    //int update(authorData author);
-    AuthorData findByID(int authorID);
 
 }

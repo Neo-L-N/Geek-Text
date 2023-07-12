@@ -2,7 +2,7 @@ package com.bookdetails.API.controller;
 
 import com.bookdetails.API.model.AuthorData;
 
-import com.bookdetails.API.repository.AuthorData_Repository;
+import com.bookdetails.API.repository.AuthorDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 public class AuthorDataController {
     @Autowired
-    AuthorData_Repository authorRepository;
+    AuthorDataRepository authorRepository;
 
     @PostMapping("/AuthorData")
     public ResponseEntity<String> createAuthor(@RequestBody AuthorData author) {
@@ -30,15 +30,6 @@ public class AuthorDataController {
         }
 
     }
-    @GetMapping("/AuthorData/{authorID}")
-    public ResponseEntity<AuthorData> getAuthorByID(@PathVariable("authorid") int id) {
-        AuthorData author = authorRepository.findByID(id);
 
-        if (author != null) {
-            return new ResponseEntity<>(author, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
 
 }

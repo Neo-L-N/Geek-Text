@@ -15,32 +15,11 @@ public class BookDetails {
     private int pubYear;
     private int sold;
     private int authorid;
-
-
-
     private int bookid;
 
-    public BookDetails(){
+    public BookDetails(){}
 
-    }
-
-    public BookDetails(String book_isbn, String book_name, String book_description, int price, String genre, String publisher, int year_published,
-                                                                                int copies_sold, int rating, int authorid, int bookid) {
-        this.isbn = book_isbn;
-        this.title = book_name;
-        this.descript = book_description;
-        this.price = price;
-        this.genre = genre;
-        this.publisher = publisher;
-        this.pubYear = year_published;
-        this.sold = copies_sold;
-        this.rating = rating;
-        this.authorid = authorid;
-        this.bookid = bookid;
-    }
-
-    public BookDetails(int authorid, String book_name, String descript, String isbn, int price, int year_Published, int copies_Sold, int bookid,
-                       String genre, String publisher, int rating){
+    public BookDetails(int authorid, int rating, String genre, String publisher, String book_name, String descript, String isbn, int price, int year_Published, int copies_Sold, int bookid){
         this.title = book_name;
         this.descript = descript;
         this.isbn = isbn;
@@ -105,8 +84,8 @@ public class BookDetails {
     //public void setAuthor(String author) {
      //   this.author = author;
   // }
-    public int getbookid() {return bookid;}
-    public int getauthorid() {
+    public int getAuthorid() {return bookid;}
+    public int getBookid() {
         return authorid;
     }
     public String getGenre() {

@@ -1,7 +1,7 @@
 package com.bookdetails.API.controller;
 
 import com.bookdetails.API.model.BookDetails;
-import com.bookdetails.API.repository.BookDetails_MainRepository;
+import com.bookdetails.API.repository.BookDetailsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import java.util.List;
 public class BookDetailsController {
 
     @Autowired
-    BookDetails_MainRepository mainRepository;
+    BookDetailsRepository mainRepository;
 
     @GetMapping("/BookDetails")
     public ResponseEntity<List<BookDetails>> getAllBooks(@RequestParam(required = false) String title) {
@@ -36,6 +36,7 @@ public class BookDetailsController {
             }
 
             return new ResponseEntity<>(Books, HttpStatus.OK);
+
         } catch (Exception e) {
             System.out.println(e);
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -57,14 +58,35 @@ public class BookDetailsController {
     @PostMapping("/BookDetails")
     public ResponseEntity<String> createBook(@RequestBody BookDetails book) {
         try {
-            mainRepository.save(new BookDetails(book.getauthorid(), book.getTitle(), book.getDescript(), book.getIsbn(), book.getPrice(), book.getPubYear(),
-                    book.getSold(), book.getbookid(), book.getGenre(), book.getPublisher(), book.getRating()));
+            mainRepository.save(new BookDetails(book.getAuthorid(), book.getRating(), book.getGenre(), book.getPublisher(), book.getTitle(), book.getDescript(), book.getIsbn(),
+                    book.getPrice(), book.getPubYear(), book.getSold(), book.getBookid()));
             return new ResponseEntity<>("Book was created successfully.", HttpStatus.CREATED);
         } catch (Exception e) {
             System.out.println(e);
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/BookDetails/authorid/{authorid}")
+    public ResponseEntity<List<BookDetails>> getBookByAuthorId(@PathVariable("authorid") int authorid) {
+        try {
+            List<BookDetails> books = new ArrayList<BookDetails>();
+
+            if (authorid == 0)
+                mainRepository.findAll().forEach(books::add);
+            else
+                mainRepository.findAllByAuthorID(authorid).forEach(books::add);
+            if (books.isEmpty()){
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(books, HttpStatus.OK);
+        }catch(Exception e){
+        System.out.println(e);
+        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+
+        }
+
+    }
+
 
     @DeleteMapping("/BookDetails/{isbn}")
     public ResponseEntity<String> deleteBook(@PathVariable("ISBN") String isbn) {
@@ -106,7 +128,18 @@ public class BookDetailsController {
         }
 
     }
+  /*  @GetMapping("/AuthorData/{authorID}")
+    public ResponseEntity<AuthorData> getAuthorByID(@PathVariable("authorid") int id) {
+        AuthorData author = authorRepository.findByAuthorID(id);
 
+        if (author != null) {
+            return new ResponseEntity<>(author, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+   */
     /*
     @GetMapping("/tutorials/published")
     public ResponseEntity<List<BookDetails>> findByPublished() {

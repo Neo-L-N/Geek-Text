@@ -5,7 +5,7 @@ import com.bookdetails.API.model.BookDetails;
 import java.util.List;
 
 
-public interface BookDetails_MainRepository {
+public interface BookDetailsRepository {
     int save(BookDetails book);
 
     int update(BookDetails book);
@@ -15,10 +15,8 @@ public interface BookDetails_MainRepository {
     String deleteByIsbn(String isbn);
 
     List<BookDetails> findAll();
-    List<BookDetails> findAllByID(int authorid);
-
-
     List<BookDetails> findByTitleContaining(String title);
+    List<BookDetails> findAllByAuthorID(int authorid);
 
     int deleteAll();
 

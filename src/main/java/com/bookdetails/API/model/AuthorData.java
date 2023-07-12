@@ -8,9 +8,7 @@ public class AuthorData {
     private String biography;
     private int authorid;
 
-    public AuthorData(){
-        
-    }
+    public AuthorData() {}
     
     public AuthorData(String firstname, String lastname, String publisher, String biography, int authorid){
         this.firstname = firstname;
