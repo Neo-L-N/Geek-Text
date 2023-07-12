@@ -71,8 +71,9 @@ import java.util.List;
         }
         @Override
         public List<BookDetails> findAllByAuthorID(int authorid) {
-            String s = "SELECT * FROM bookdata WHERE authorid = ?";
-            return jdbcTemplate.query(s, (rs, rowNum) ->
+            String s = "SELECT * FROM bookdata WHERE authorid like ?";
+            return jdbcTemplate.query(s, new Object[]{"%" + authorid + "%"}, (rs, rowNum) ->
+
                     new BookDetails(rs.getInt("authorid"),
                             rs.getInt("rating"),
                             rs.getString("genre"),
@@ -83,8 +84,7 @@ import java.util.List;
                             rs.getInt("price"),
                             rs.getInt("pubYear"),
                             rs.getInt("sold"),
-                            rs.getInt("bookid"))
-            , BeanPropertyRowMapper.newInstance(BookDetails.class));
+                            rs.getInt("bookid")));
 
         }
 
