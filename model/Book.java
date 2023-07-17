@@ -1,0 +1,131 @@
+package com.geektext.api.model;
+public class Book
+{
+    private long id;
+    private int isbn;
+    private String title;
+    private String description;
+    private String authorFirst;
+    private String authorLast;
+    private String genre;
+    private String publisher;
+    private String biography;
+    private int yearPublished;
+
+    public Book() {
+
+    }
+    public Book(long id, int book_isbn, String book_title, String bookDescription, String authorFirst, String authorLast,
+                String genre, String publisher, String biography, int yearPublished)
+    {
+        this.id = id;
+        this.isbn = book_isbn;
+        this.title = book_title;
+        this.description = bookDescription;
+        this.authorFirst = authorFirst;
+        this.authorLast = authorLast;
+        this.genre = genre;
+        this.publisher = publisher;
+        this.biography = biography;
+        this.yearPublished = yearPublished;
+    }
+
+    public Book(String book_title, String description, int isbn)
+    {
+        this.title = book_title;
+        this.description = description;
+        this.isbn = isbn;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(int isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthorFirst() {
+        return authorFirst;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setAuthorFirst(String authorFirst) {
+        this.authorFirst = authorFirst;
+    }
+
+    public String getAuthorLast() {
+        return authorLast;
+    }
+
+    public void setAuthorLast(String authorLast) {
+        this.authorLast = authorLast;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getBiography() {
+        return biography;
+    }
+
+    public void setBiography(String biography) {
+        this.biography = biography;
+    }
+
+    public int getYearPublished() {
+        return yearPublished;
+    }
+
+    public void setYearPublished(int yearPublished) {
+        this.yearPublished = yearPublished;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Book[id = " + id +
+                ", Book Isbn=" + isbn + '\'' + ", Book Title'" + title + '\'' + ", Book Description='" + description + '\'' +
+                ", Author='" + authorFirst + " " + authorLast + '\'' + ", Genre='" + genre + '\'' +
+                ", Publisher='" + publisher + '\'' + ", Year Published=" + yearPublished + "]";
+    }
+
+}
+
+
