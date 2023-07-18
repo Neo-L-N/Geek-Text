@@ -8,7 +8,11 @@
 		<version>3.1.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+<<<<<<< HEAD
 	<groupId>com.bookstore</groupId>
+=======
+	<groupId>com.bookdetails</groupId>
+>>>>>>> origin/BookDetails_Sprint4
 	<artifactId>API</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>API</name>
@@ -17,10 +21,15 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/BookDetails_Sprint4
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
+<<<<<<< HEAD
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -31,11 +40,62 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+=======
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+			<version>8.0.33</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+>>>>>>> origin/BookDetails_Sprint4
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+<<<<<<< HEAD
+=======
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>6.0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>6.0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>6.0.9</version>
+		</dependency>
+
+
+>>>>>>> origin/BookDetails_Sprint4
 	</dependencies>
 
 	<build>
