@@ -1,7 +1,7 @@
-package com.bookstore.API.Controllers;
+package com.bookstore.API.controller;
 
-import com.bookstore.API.Models.BookDataModel;
-import com.bookstore.API.Services.BrowsingSortingService;
+import com.bookstore.API.model.BookDataModel;
+import com.bookstore.API.repository.BrowsingSortingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,9 +1,8 @@
-package com.bookstore.API.Repositories;
+package com.bookstore.API.repository;
 
 import java.util.List;
 
-import com.bookstore.API.Models.BookDataModel;
-import com.bookstore.API.Services.BrowsingSortingService;
+import com.bookstore.API.model.BookDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -65,4 +64,16 @@ public class BrowsingSortingJDBCRep implements BrowsingSortingService {
     }
 
 
+    public static interface BrowsingSortingService {
+
+        List<BookDataModel> findGenre(String genre);
+
+        List<BookDataModel> sortRating(Integer rating);
+
+        List<BookDataModel> bestSeller();
+
+        void updatePrice(String publisher, Integer discount);
+
+
+    }
 }

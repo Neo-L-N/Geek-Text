@@ -1,4 +1,4 @@
-package com.bookstore.API.Models;
+package com.bookstore.API.model;
 
 public class BookDataModel {
 
