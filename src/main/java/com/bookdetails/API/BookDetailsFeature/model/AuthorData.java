@@ -1,4 +1,4 @@
-package com.bookdetails.API.model;
+package com.bookdetails.API.BookDetailsFeature.model;
 
 public class AuthorData {
 

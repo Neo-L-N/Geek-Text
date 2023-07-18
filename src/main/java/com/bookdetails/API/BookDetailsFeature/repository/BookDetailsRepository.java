@@ -1,6 +1,6 @@
-package com.bookdetails.API.repository;
+package com.bookdetails.API.BookDetailsFeature.repository;
 
-import com.bookdetails.API.model.BookDetails;
+import com.bookdetails.API.BookDetailsFeature.model.BookDetails;
 
 import java.util.List;
 

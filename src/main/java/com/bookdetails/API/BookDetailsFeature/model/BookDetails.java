@@ -1,4 +1,4 @@
-package com.bookdetails.API.model;
+package com.bookdetails.API.BookDetailsFeature.model;
 
 public class BookDetails {
     /* Book details: An administrator must be able to create a book with the book ISBN, book

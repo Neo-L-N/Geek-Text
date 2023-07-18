@@ -1,8 +1,8 @@
-package com.bookdetails.API.controller;
+package com.bookdetails.API.BookDetailsFeature.controller;
 
-import com.bookdetails.API.model.AuthorData;
+import com.bookdetails.API.BookDetailsFeature.model.AuthorData;
 
-import com.bookdetails.API.repository.AuthorDataRepository;
+import com.bookdetails.API.BookDetailsFeature.repository.AuthorDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
