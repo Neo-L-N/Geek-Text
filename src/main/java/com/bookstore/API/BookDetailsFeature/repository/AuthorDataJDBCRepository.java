@@ -1,7 +1,7 @@
-package com.bookdetails.API.BookDetailsFeature.repository;
+package com.bookstore.API.BookDetailsFeature.repository;
 
 
-import com.bookdetails.API.BookDetailsFeature.model.AuthorData;
+import com.bookstore.API.BookDetailsFeature.model.AuthorData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

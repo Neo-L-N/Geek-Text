@@ -1,6 +1,6 @@
-package com.bookdetails.API.BookDetailsFeature.repository;
+package com.bookstore.API.BookDetailsFeature.repository;
 
-import com.bookdetails.API.BookDetailsFeature.model.BookDetails;
+import com.bookstore.API.BookDetailsFeature.model.BookDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
