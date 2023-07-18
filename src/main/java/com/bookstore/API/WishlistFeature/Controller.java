@@ -1,4 +1,4 @@
-package com.bookstore.API;
+package com.bookstore.API.WishlistFeature;
 
 import com.bookstore.API.BookSortingFeature.BookDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
