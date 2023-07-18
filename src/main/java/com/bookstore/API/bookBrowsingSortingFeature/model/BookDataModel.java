@@ -1,5 +1,6 @@
 package com.bookstore.API.bookBrowsingSortingFeature.model;
 
+// This is the model for books
 public class BookDataModel {
 
     private Integer authorid;
