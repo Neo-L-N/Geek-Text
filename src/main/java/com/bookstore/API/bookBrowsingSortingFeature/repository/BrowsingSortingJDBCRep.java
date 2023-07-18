@@ -1,8 +1,8 @@
-package com.bookstore.API.repository;
+package com.bookstore.API.bookBrowsingSortingFeature.repository;
 
 import java.util.List;
 
-import com.bookstore.API.model.BookDataModel;
+import com.bookstore.API.bookBrowsingSortingFeature.model.BookDataModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
