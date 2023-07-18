@@ -1,4 +1,4 @@
-package com.bookstore.API;
+package com.bookstore.API.WishlistFeature;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
  * This is the restfull api repository that contains all the database queries.
  */
 @Repository
-public class JDBCRep implements UserDataRepository {
+public class wishlistJDBCRep implements UserDataRepository {
 
 
     @Autowired
