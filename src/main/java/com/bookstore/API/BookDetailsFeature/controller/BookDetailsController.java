@@ -89,7 +89,7 @@ public class BookDetailsController {
 
 
     @DeleteMapping("/BookDetails/{isbn}")
-    public ResponseEntity<String> deleteBook(@PathVariable("ISBN") String isbn) {
+    public ResponseEntity<String> deleteBook(@PathVariable("isbn") String isbn) {
         try {
             String result = mainRepository.deleteByIsbn(isbn);
             if (result == null) {
@@ -128,33 +128,5 @@ public class BookDetailsController {
         }
 
     }
-  /*  @GetMapping("/AuthorData/{authorID}")
-    public ResponseEntity<AuthorData> getAuthorByID(@PathVariable("authorid") int id) {
-        AuthorData author = authorRepository.findByAuthorID(id);
 
-        if (author != null) {
-            return new ResponseEntity<>(author, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-   */
-    /*
-    @GetMapping("/tutorials/published")
-    public ResponseEntity<List<BookDetails>> findByPublished() {
-        try {
-            List<BookDetails> Books = mainRepository.findByPublished(true);
-
-            if (Books.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
-            return new ResponseEntity<>(Books, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-
-     */
 }
