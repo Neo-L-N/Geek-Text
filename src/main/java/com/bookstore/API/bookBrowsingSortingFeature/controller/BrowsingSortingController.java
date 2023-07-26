@@ -61,34 +61,4 @@ public class BrowsingSortingController {
 
     }
 
-    /*
-    @RequestMapping("/customer")
-    public String sayHello () {
-        return "Hello everyone";
-    }
-
-    @GetMapping("/{ID}")
-    public ResponseEntity<BookDataModel.UserDataModel> getTutorialById(@PathVariable("ID") int ID) {
-        BookDataModel.UserDataModel userDataModel = interfaceChoice.findById(ID);
-
-        if (userDataModel != null) {
-            return new ResponseEntity<>(userDataModel, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-
-    @PostMapping("/test")
-    public ResponseEntity<String> createTutorial(@RequestBody BookDataModel.UserDataModel userDataModel) {
-        try {
-            interfaceChoice.save(new BookDataModel.UserDataModel(userDataModel.getUserName(), userDataModel.getUserPassword(), userDataModel.getFullName(),
-                    userDataModel.getEmail(), userDataModel.getAddress(), userDataModel.getCreditCard()));
-            return new ResponseEntity<>("Tutorial was created successfully.", HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-*/
 }
